@@ -34,6 +34,7 @@ for i in rows:
 
 print("\n")
 
+/*
 cur.execute('''CREATE VIEW total AS
             SELECT date(time), COUNT(*) AS views
             FROM log
@@ -44,6 +45,7 @@ cur.execute('''CREATE VIEW err AS
             FROM log WHERE status LIKE '404%'
             GROUP BY date(time)
             ORDER BY date(time);''')
+*/
 cur.execute('''SELECT total.date, ((100.0*err.errors/total.views)>1) AS percent
             FROM total, err
             WHERE total.date = err.date
